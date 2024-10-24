@@ -75,8 +75,8 @@ class CarDetailView(LoginRequiredMixin, generic.DetailView):
             car.drivers.add(request.user)
 
         # Redirection vers la page de détail de la voiture
-        return redirect(reverse("taxi:car-detail", kwargs={'pk': car.pk}))
-    
+        return redirect(reverse("taxi:car-detail", kwargs={"pk": car.pk}))
+
 
 class CarCreateView(LoginRequiredMixin, generic.CreateView):
     model = Car
@@ -108,6 +108,7 @@ class DriverDetailView(LoginRequiredMixin, generic.DetailView):
 class DriverCreateView(LoginRequiredMixin, generic.CreateView):
     model = Driver
     form_class = DriverCreationForm
+
 
 class DriverUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Driver
